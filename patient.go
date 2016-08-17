@@ -5,9 +5,9 @@ import "time"
 type PatientStatus int
 
 const (
-	InTreatment PatientStatus = iota
-	Released
-	Deceased
+	PatientInTreatment PatientStatus = iota
+	PatientReleased
+	PatientDeceased
 )
 
 type Patient struct {
@@ -20,7 +20,7 @@ type Patient struct {
 }
 
 type PatientDB interface {
+	All(PatientStatus) []*Patient
 	Create(*Patient) error
 	Find(id string) (*Patient, error)
-	AllAdmitted() []*Patient
 }

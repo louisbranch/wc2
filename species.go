@@ -6,6 +6,7 @@ type Species struct {
 }
 
 type SpeciesDB interface {
+	All() []*Species
 	Create(*Species) error
 	Find(id string) (*Species, error)
 	FindByName(name string) (*Species, error)

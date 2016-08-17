@@ -12,6 +12,7 @@ type StaffMember struct {
 type StaffMemberType int
 
 type StaffMemberDB interface {
+	All() []*StaffMember
 	Create(*StaffMember) error
 	Find(id string) (*StaffMember, error)
 	FindByEmail(email string) (*StaffMember, error)

@@ -6,5 +6,4 @@ type Diet struct {
 	SpeciesID string
 	Content   string
 	CreatedAt time.Time
-	UpdatedAt time.Time
 }
