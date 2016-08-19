@@ -19,8 +19,24 @@ type Patient struct {
 	Discharge time.Time
 }
 
-type PatientDB interface {
+type PatientStorage interface {
 	All(PatientStatus) []*Patient
 	Create(*Patient) error
 	Find(id string) (*Patient, error)
+}
+
+type Admission interface {
+	New(*Patient, *StaffMember) error
+}
+
+type Release interface {
+	New(*Patient, *StaffMember) error
+}
+
+func (p *Patient) ReferenceID() string {
+	return p.ID
+}
+
+func (p *Patient) ReferenceName() string {
+	return "Patient"
 }
